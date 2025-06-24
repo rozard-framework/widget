@@ -1,0 +1,4 @@
+module:
+  mounts:
+    - source: "model"
+      target: "layouts/partials/widget"
