@@ -1,4 +1,4 @@
 module:
   mounts:
-    - source: "model"
+    - source: "engine/model"
       target: "layouts/partials/widget"
