@@ -3,4 +3,4 @@ module:
     - source: "engine"
       target: "layouts/partials/widget/default"
     - source: "library"
-      target: "layouts/partial/lib"
+      target: "layouts/partials/lib"
