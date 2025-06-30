@@ -1,6 +1,6 @@
 module:
   mounts:
-    - source: "engine"
-      target: "layouts/partials/widget/default"
+    - source: "engine/model"
+      target: "layouts/partials/widget"
     - source: "library"
       target: "layouts/partials/lib"
