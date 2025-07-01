@@ -1,14 +1,16 @@
-{{- $model := "article" -}}
+{{- $theming := "default" -}}
+{{- with .Site.Params.System.Themes -}}{{- $theming = ( . | urlize ) -}}{{- end -}}
 
+{{- $model := "" -}}
 
-{{- $skins := "main" -}}
+{{- $skins := "" -}}
 
 
 {{- $widget_paths := "" -}}
-{{- $widget_based := printf "widget/%s/%s/view.html"    $model $skins -}}
-{{- $widget_modul := printf "widget/%s/%s/%s/view.html" .Section $model $skins -}}
-{{- $widget_theme := printf "widget/%s/%s/%s/view.html" .Section $model $skins -}}
-{{- $widget_skins := printf "widget/%s/%s/%s/view.html" .Section $model $skins -}}
+{{- $widget_based :=  printf "widget/%s/%s/render.html" $model $skins  -}}
+{{- $widget_modul :=  printf "module/%s/widget/%s/%s/render.html" .Section $model $skins -}}
+{{- $widget_theme :=  printf "themes/%s/widget/%s/%s/render.html" $theming $model $skins -}}
+{{- $widget_skins :=  printf "themes/%s/module/%s/widget/%s/%s/render.html" $theming .Section $model $skins -}}
 
 
 {{- if templates.Exists ( printf "partials/%s" $widget_based ) -}}
