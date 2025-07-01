@@ -1,0 +1,35 @@
+{{- $model := "article" -}}
+
+
+{{- $skins := "main" -}}
+
+
+{{- $widget_paths := "" -}}
+{{- $widget_based := printf "widget/%s/%s/view.html"    $model $skins -}}
+{{- $widget_modul := printf "widget/%s/%s/%s/view.html" .Section $model $skins -}}
+{{- $widget_theme := printf "widget/%s/%s/%s/view.html" .Section $model $skins -}}
+{{- $widget_skins := printf "widget/%s/%s/%s/view.html" .Section $model $skins -}}
+
+
+{{- if templates.Exists ( printf "partials/%s" $widget_based ) -}}
+    {{- $widget_render = $widget_based -}}
+{{- end -}}
+
+{{- if templates.Exists ( printf "partials/%s" $widget_modul ) -}}
+    {{- $widget_render = $widget_modul -}}
+{{- end -}}
+
+
+{{- if templates.Exists ( printf "partials/%s" $widget_theme ) -}}
+    {{- $widget_render = $widget_theme -}}
+{{- end -}}
+
+
+{{- if templates.Exists ( printf "partials/%s" $widget_skins ) -}}
+    {{- $widget_render = $widget_skins -}}
+{{- end -}}
+
+
+{{- if templates.Exists ( printf "partials/%s" $widget_paths ) -}}
+    {{- partial $widget_paths . -}}
+{{- end -}}
